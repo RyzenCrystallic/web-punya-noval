@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vallz Store - Top Up Diamond Free Fire Murah & Terpercaya</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        vallz: {
+                            gold: '#f59e0b',
+                            goldLight: '#fbbf24',
+                            cyan: '#00f2fe',
+                            blue: '#3b82f6',
+                            darkBg: '#090d16',
+                            cardBg: '#111827',
+                            cardBorder: '#1f2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-cyan {
+            background: linear-gradient(135deg, #00f2fe 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+        }
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+        }
+    </style>
+</head>
+<body class="custom-scrollbar bg-[#090d16] text-gray-100 min-h-screen flex flex-col justify-between selection:bg-yellow-500 selection:text-black">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-20 right-4 z-50 transform translate-x-full transition-transform duration-300 ease-in-out bg-slate-900 border-l-4 border-yellow-500 text-white p-4 rounded-r-xl shadow-2xl flex items-center gap-3 max-w-sm">
+        <div id="toast-icon" class="text-yellow-400 text-xl"><i class="fas fa-bell"></i></div>
+        <div>
+            <h4 id="toast-title" class="font-bold text-sm">Notifikasi Vallz</h4>
+            <p id="toast-msg" class="text-xs text-gray-300">Pesan sukses di sini.</p>
+        </div>
+    </div>
+
+    <!-- Live Transaction Popup Floating -->
+    <div id="live-tx-popup" class="fixed bottom-5 left-5 z-40 bg-slate-900/90 border border-yellow-500/30 rounded-xl p-3 shadow-xl backdrop-blur-md flex items-center gap-3 transform -translate-x-full transition-all duration-500 max-w-xs text-xs">
+        <div class="w-8 h-8 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center font-bold text-sm flex-shrink-0">
+            💎
+        </div>
+        <div>
+            <div class="flex items-center gap-1 text-gray-400">
+                <span id="tx-user" class="font-semibold text-gray-200">User***</span>
+                <span>•</span>
+                <span class="text-[10px]">Baru saja</span>
+            </div>
+            <p class="text-yellow-300 font-medium line-clamp-1" id="tx-item">1440 Diamond Free Fire</p>
+            <span class="text-[10px] text-green-400 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-ping"></span> Sukses Otomatis
+            </span>
+        </div>
+    </div>
+
+    <!-- Header & Navbar -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-yellow-500 to-amber-600 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-yellow-500/20 group-hover:scale-105 transition-transform">
+                    V
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider gradient-gold uppercase">Vallz Store</span>
+                    <span class="hidden sm:block text-[10px] text-yellow-400/80 -mt-1 font-semibold tracking-widest">OFFICIAL TOP UP FF</span>
+                </div>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-md hidden md:block relative">
+                <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="text" id="searchInput" onkeyup="searchGame()" placeholder="Cari nominal diamond atau item..." class="w-full pl-10 pr-4 py-2 bg-slate-900/90 border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-yellow-500 text-gray-200 placeholder-gray-500 transition-colors">
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+                <a href="#" class="text-yellow-400 font-semibold hover:text-yellow-300 transition-colors">Home</a>
+                <a href="#order-section" class="text-gray-300 hover:text-yellow-400 transition-colors">Daftar Harga</a>
+                <a href="#cara-topup" class="text-gray-300 hover:text-yellow-400 transition-colors">Cara Top Up</a>
+                <a href="#testimonials" class="text-gray-300 hover:text-yellow-400 transition-colors">Testimoni</a>
+            </nav>
+
+            <!-- WhatsApp CS Button -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/6285215092503?text=Halo%20Vallz%20Store,%20saya%20ingin%20bertanya%20seputar%20top%20up%20Free%20Fire" target="_blank" class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 hover:bg-green-500/20 text-xs font-semibold transition-all">
+                    <i class="fab fa-whatsapp text-sm"></i> <span class="hidden sm:inline">085215092503</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Banner Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <div class="relative rounded-2xl overflow-hidden glass-card p-6 md:p-8 glow-gold border border-yellow-500/20">
+            <div class="absolute -top-24 -right-24 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span> TERPERCAYA & TERMURAH SE-INDONESIA
+                    </div>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+                        Top Up Diamond <span class="gradient-gold">Free Fire</span> di Vallz Store
+                    </h1>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Pusat top up game online paling aman, legal 100% resmi Garena, dan diproses super cepat hitungan detik langsung masuk ke akun Anda.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-2 pt-2 max-w-md mx-auto lg:mx-0 text-left">
+                        <div class="flex items-center gap-2 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
+                            <i class="fas fa-bolt text-yellow-400 text-base"></i>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-200">Instant Process</p>
+                                <p class="text-[9px] text-gray-400">1-3 Detik Masuk</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
+                            <i class="fas fa-shield-alt text-green-400 text-base"></i>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-200">100% Legal</p>
+                                <p class="text-[9px] text-gray-400">Anti Minus / Banned</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
+                            <i class="fas fa-headset text-cyan-400 text-base"></i>
+                            <div>
+                                <p class="text-[11px] font-bold text-gray-200">CS 24/7</p>
+                                <p class="text-[9px] text-gray-400">0852-1509-2503</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-yellow-500/30 group">
+                        <img src="https://placehold.co/600x350/111827/f59e0b?text=VALLZ+STORE+TOP+UP+FF" alt="Vallz Store Banner" class="w-full h-56 sm:h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="bg-yellow-500 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded uppercase">Flash Sale VIP</span>
+                            <h3 class="text-sm font-bold text-white mt-1">Diskon Spesial Diamond & Membership Bulanan!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Order Section -->
+    <main id="order-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        <!-- Game Profile Header -->
+        <div class="glass-card rounded-2xl p-4 mb-6 border border-yellow-500/20 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-slate-800 p-1 border border-yellow-500/50 overflow-hidden flex-shrink-0">
+                    <img src="https://placehold.co/100x100/111827/f59e0b?text=FF" alt="FF" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div>
+                    <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                        Free Fire Indonesia <i class="fas fa-check-circle text-yellow-400 text-sm"></i>
+                    </h2>
+                    <p class="text-xs text-gray-400">Garena Free Fire - Vallz Store Official Merchant</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 text-xs bg-slate-900 px-3.5 py-2 rounded-xl border border-slate-800">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                <span class="text-gray-300">Server Status: <strong class="text-green-400">ONLINE (24 JAM)</strong></span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <!-- Form Order Steps -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- STEP 1: Account Data -->
+                <div class="glass-card rounded-2xl p-5 sm:p-6 border border-slate-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-yellow-500 text-slate-950 font-black flex items-center justify-center text-sm">1</div>
+                        <h3 class="text-base font-bold text-white uppercase tracking-wide">Masukkan Data Akun</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Player ID (User ID) <span class="text-red-400">*</span></label>
+                            <input type="number" id="userId" placeholder="Contoh: 123456789" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-yellow-500 text-white placeholder-gray-500 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-1">Server ID / Zone ID (Opsional)</label>
+                            <input type="text" id="zoneId" placeholder="Contoh: 6228" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-yellow-500 text-white placeholder-gray-500 transition-all">
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-400 mt-2 flex items-center gap-1">
+                        <i class="fas fa-info-circle text-yellow-400"></i> Player ID dapat dilihat di bagian profil akun Free Fire Anda.
+                    </p>
+                </div>
+
+                <!-- STEP 2: Nominal Diamond (5 to 7310) -->
+                <div class="glass-card rounded-2xl p-5 sm:p-6 border border-slate-800">
+                    <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-yellow-500 text-slate-950 font-black flex items-center justify-center text-sm">2</div>
+                            <h3 class="text-base font-bold text-white uppercase tracking-wide">Pilih Nominal Diamond</h3>
+                        </div>
+                        <div class="flex gap-1 bg-slate-900 p-1 rounded-xl text-xs">
+                            <button onclick="filterNominal('all')" class="cat-btn active px-3 py-1 rounded-lg font-medium text-yellow-400 bg-slate-800 transition-all">Semua</button>
+                            <button onclick="filterNominal('diamond')" class="cat-btn px-3 py-1 rounded-lg font-medium text-gray-400 hover:text-white transition-all">Diamond</button>
+                            <button onclick="filterNominal('membership')" class="cat-btn px-3 py-1 rounded-lg font-medium text-gray-400 hover:text-white transition-all">Membership</button>
+                        </div>
+                    </div>
+
+                    <!-- Grid Nominal -->
+                    <div id="nominalGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+
+                <!-- STEP 3: Payment Methods -->
+                <div class="glass-card rounded-2xl p-5 sm:p-6 border border-slate-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-yellow-500 text-slate-950 font-black flex items-center justify-center text-sm">3</div>
+                        <h3 class="text-base font-bold text-white uppercase tracking-wide">Pilih Metode Pembayaran</h3>
+                    </div>
+
+                    <div class="space-y-3" id="paymentOptionsContainer">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+
+                <!-- STEP 4: WhatsApp Confirmation Number -->
+                <div class="glass-card rounded-2xl p-5 sm:p-6 border border-slate-800">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-yellow-500 text-slate-950 font-black flex items-center justify-center text-sm">4</div>
+                        <h3 class="text-base font-bold text-white uppercase tracking-wide">Nomor WhatsApp Anda</h3>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 mb-1">Nomor WhatsApp <span class="text-red-400">*</span></label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400 text-sm">
+                                <i class="fab fa-whatsapp text-green-400"></i>
+                            </div>
+                            <input type="tel" id="waNumber" placeholder="Contoh: 081234567890" class="w-full pl-10 pr-4 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm focus:outline-none focus:border-yellow-500 text-white placeholder-gray-500 transition-all">
+                        </div>
+                        <p class="text-[11px] text-gray-400 mt-1.5">Bukti transaksi akan dikirimkan otomatis ke nomor WhatsApp ini.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sidebar Summary -->
+            <div class="lg:col-span-4">
+                <div class="glass-card rounded-2xl p-5 border border-yellow-500/20 sticky top-20 space-y-4 shadow-xl">
+                    <h3 class="text-base font-bold text-white border-b border-slate-800 pb-3 flex items-center justify-between">
+                        <span><i class="fas fa-receipt text-yellow-400 me-2"></i>Ringkasan Pesanan</span>
+                        <span class="text-xs font-normal text-gray-400">Vallz Store</span>
+                    </h3>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-gray-400">User ID</span>
+                            <span id="summaryUserId" class="font-semibold text-gray-200">Belum diisi</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-gray-400">Produk</span>
+                            <span id="summaryProduct" class="font-semibold text-yellow-300 text-right">Belum dipilih</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-gray-400">Pembayaran</span>
+                            <span id="summaryPayment" class="font-semibold text-gray-200 text-right">Belum dipilih</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/50">
+                            <span class="text-gray-400">Biaya Admin</span>
+                            <span id="summaryFee" class="font-semibold text-gray-200">Rp 0</span>
+                        </div>
+
+                        <div class="pt-2">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="font-bold text-gray-300">Total Pembayaran</span>
+                                <span id="summaryTotal" class="text-lg font-black text-yellow-400">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <div class="flex gap-2">
+                            <input type="text" id="voucherCode" placeholder="Kode Promo (Cth: VALLZ)" class="w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-xl text-xs uppercase focus:outline-none focus:border-yellow-500 text-white">
+                            <button onclick="applyVoucher()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-yellow-400 font-semibold rounded-xl text-xs border border-slate-700 transition-colors">Pakai</button>
+                        </div>
+                        <span id="voucherMsg" class="text-[10px] block mt-1"></span>
+                    </div>
+
+                    <button onclick="processOrder()" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-400 hover:from-yellow-400 hover:to-amber-400 text-slate-950 font-extrabold text-sm tracking-wide uppercase shadow-lg shadow-yellow-500/25 transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Beli via WhatsApp
+                    </button>
+
+                    <div class="text-center pt-1">
+                        <span class="text-[10px] text-gray-400 flex items-center justify-center gap-1">
+                            <i class="fas fa-shield-check text-green-400"></i> Layanan Resmi Vallz Store 085215092503
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SECTION: Cara Top Up -->
+    <section id="cara-topup" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-800/80">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Cara Top Up di <span class="gradient-gold">Vallz Store</span></h2>
+            <p class="text-xs sm:text-sm text-gray-400 mt-2">Hanya butuh 4 langkah mudah untuk mengisi diamond Free Fire Anda.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 flex items-center justify-center font-bold text-lg mb-4">1</div>
+                <h3 class="text-base font-bold text-white mb-1">Masukkan Data Akun</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Isi Player ID dan Zone ID Free Fire Anda dengan benar pada kolom yang tersedia.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 flex items-center justify-center font-bold text-lg mb-4">2</div>
+                <h3 class="text-base font-bold text-white mb-1">Pilih Nominal</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Pilih jumlah Diamond atau paket Membership Free Fire sesuai kebutuhan Anda mulai 5 s.d 7310 Diamond.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 flex items-center justify-center font-bold text-lg mb-4">3</div>
+                <h3 class="text-base font-bold text-white mb-1">Metode Pembayaran</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Pilih metode pembayaran favorit Anda seperti QRIS, DANA, OVO, GOPAY, atau Transfer Bank.</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                <div class="w-10 h-10 rounded-xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 flex items-center justify-center font-bold text-lg mb-4">4</div>
+                <h3 class="text-base font-bold text-white mb-1">Konfirmasi & Selesai</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">Klik tombol "Beli via WhatsApp" untuk mengirim pesanan secara otomatis ke nomor CS Vallz Store.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: Testimoni & Live Transaksi -->
+    <section id="testimonials" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-800/80">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-7">
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                    <i class="fas fa-star text-yellow-400"></i> Testimoni Pelanggan Vallz Store
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass-card p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-9 h-9 rounded-full bg-yellow-500/20 text-yellow-400 font-bold flex items-center justify-center">R</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Rian Gaming</h4>
+                                <div class="text-yellow-400 text-[10px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300 italic">"Top up 7310 Diamond di Vallz Store beneran kilat masuknya. CS-nya juga fast respon banget via WA 085215092503!"</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-9 h-9 rounded-full bg-yellow-500/20 text-yellow-400 font-bold flex items-center justify-center">D</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Dimas ID</h4>
+                                <div class="text-yellow-400 text-[10px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300 italic">"Harga diamond paling murah dibanding tempat lain. Mantap pol Vallz Store, langganan tetapku!"</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-9 h-9 rounded-full bg-yellow-500/20 text-yellow-400 font-bold flex items-center justify-center">A</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Aldi FF</h4>
+                                <div class="text-yellow-400 text-[10px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300 italic">"Prosesnya gampang, tinggal klik langsung diarahkan ke WhatsApp. Terpercaya dan anti ribet!"</p>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-xl border border-slate-800">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-9 h-9 rounded-full bg-yellow-500/20 text-yellow-400 font-bold flex items-center justify-center">S</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Siska Putri</h4>
+                                <div class="text-yellow-400 text-[10px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300 italic">"Beli membership bulanan di Vallz Store sangat lancar. Recommended banget buat survivors!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Transaction Table -->
+            <div class="lg:col-span-5">
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center justify-between">
+                    <span><i class="fas fa-list-alt text-yellow-400 me-2"></i>Transaksi Realtime</span>
+                    <span class="text-xs font-normal text-green-400 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span> Live
+                    </span>
+                </h2>
+                <div class="glass-card rounded-xl overflow-hidden border border-slate-800">
+                    <div class="max-h-80 overflow-y-auto custom-scrollbar">
+                        <table class="w-full text-left text-xs text-gray-300">
+                            <thead class="bg-slate-900 text-gray-400 uppercase text-[10px]">
+                                <tr>
+                                    <th class="p-3">User ID</th>
+                                    <th class="p-3">Item</th>
+                                    <th class="p-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="liveTxTable" class="divide-y divide-slate-800/60">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="glass-card border-t border-slate-800 mt-12 pt-10 pb-6 text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-3 md:col-span-1">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-yellow-500 flex items-center justify-center text-slate-950 font-black text-base">V</div>
+                        <span class="text-lg font-bold text-white tracking-wider">VALLZ STORE</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        Website top up game Free Fire terpercaya, termurah, dan proses instant 24/7 resmi Indonesia.
+                    </p>
+                    <div class="flex gap-3 text-base text-gray-300 pt-1">
+                        <a href="#" class="hover:text-yellow-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-yellow-400 transition-colors"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-yellow-400 transition-colors"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-3 border-l-2 border-yellow-400 pl-2">Menu Navigasi</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Home Utama</a></li>
+                        <li><a href="#order-section" class="hover:text-yellow-400 transition-colors">Daftar Harga FF</a></li>
+                        <li><a href="#cara-topup" class="hover:text-yellow-400 transition-colors">Cara Melakukan Top Up</a></li>
+                        <li><a href="#testimonials" class="hover:text-yellow-400 transition-colors">Testimoni Pelanggan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-3 border-l-2 border-yellow-400 pl-2">Metode Pembayaran</h4>
+                    <div class="flex flex-wrap gap-2 text-[10px] text-gray-300 font-semibold">
+                        <span class="bg-slate-900 border border-slate-700 px-2 py-1 rounded">QRIS</span>
+                        <span class="bg-slate-900 border border-slate-700 px-2 py-1 rounded">DANA</span>
+                        <span class="bg-slate-900 border border-slate-700 px-2 py-1 rounded">OVO</span>
+                        <span class="bg-slate-900 border border-slate-700 px-2 py-1 rounded">GOPAY</span>
+                        <span class="bg-slate-900 border border-slate-700 px-2 py-1 rounded">BCA VA</span>
+                        <span class="bg-slate-900 border border-slate-700 px-2 py-1 rounded">MANDIRI VA</span>
+                        <span class="bg-slate-900 border border-slate-700 px-2 py-1 rounded">BRI VA</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-3 border-l-2 border-yellow-400 pl-2">Kontak Resmi CS</h4>
+                    <p class="text-gray-400 mb-2">WhatsApp Official Vallz Store:</p>
+                    <a href="https://wa.me/6285215092503" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-green-500 hover:bg-green-600 text-slate-950 font-bold transition-all shadow-lg shadow-green-500/20">
+                        <i class="fab fa-whatsapp text-base"></i> 0852-1509-2503
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 text-center text-gray-500 text-[11px]">
+                <p>&copy; 2026 Vallz Store. All rights reserved. Official Free Fire Top Up Partner.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DIAMOND & MEMBERSHIP DATA (FROM 5 TO 7310)
+        const nominalData = [
+            { id: 'dm-5', name: '5 Diamond', type: 'diamond', price: 1000, originalPrice: 1500, badge: '' },
+            { id: 'dm-12', name: '12 Diamond', type: 'diamond', price: 2000, originalPrice: 2500, badge: '' },
+            { id: 'dm-50', name: '50 Diamond', type: 'diamond', price: 7000, originalPrice: 8500, badge: 'Promo' },
+            { id: 'dm-70', name: '70 Diamond', type: 'diamond', price: 9800, originalPrice: 11000, badge: '' },
+            { id: 'dm-140', name: '140 Diamond', type: 'diamond', price: 19000, originalPrice: 22000, badge: 'Terlaris' },
+            { id: 'dm-355', name: '355 Diamond', type: 'diamond', price: 47500, originalPrice: 52000, badge: '' },
+            { id: 'dm-720', name: '720 Diamond', type: 'diamond', price: 95000, originalPrice: 105000, badge: 'Best Value' },
+            { id: 'dm-1440', name: '1440 Diamond', type: 'diamond', price: 189000, originalPrice: 210000, badge: '' },
+            { id: 'dm-2180', name: '2180 Diamond', type: 'diamond', price: 285000, originalPrice: 310000, badge: 'Mega' },
+            { id: 'dm-3640', name: '3640 Diamond', type: 'diamond', price: 475000, originalPrice: 510000, badge: '' },
+            { id: 'dm-7310', name: '7310 Diamond', type: 'diamond', price: 940000, originalPrice: 1000000, badge: 'Sultan' },
+            { id: 'mem-week', name: 'Membership Mingguan', type: 'membership', price: 29000, originalPrice: 35000, badge: 'Hot' },
+            { id: 'mem-month', name: 'Membership Bulanan', type: 'membership', price: 145000, originalPrice: 175000, badge: 'Rekomendasi' },
+            { id: 'bp-pass', name: 'Booyah Pass Premium', type: 'membership', price: 45000, originalPrice: 55000, badge: 'Spesial' }
+        ];
+
+        // PAYMENT METHODS
+        const paymentMethodsData = [
+            {
+                category: 'E-Wallet & QRIS (Instant)',
+                items: [
+                    { id: 'qris', name: 'QRIS (All QRIS / E-Wallet / Bank)', icon: 'fa-qrcode', fee: 0, text: 'Bebas Biaya Admin' },
+                    { id: 'dana', name: 'DANA', icon: 'fa-wallet', fee: 500, text: 'Otomatis 1 Detik' },
+                    { id: 'gopay', name: 'GoPay', icon: 'fa-mobile-alt', fee: 500, text: 'Otomatis 1 Detik' },
+                    { id: 'ovo', name: 'OVO', icon: 'fa-coins', fee: 500, text: 'Otomatis 1 Detik' },
+                    { id: 'shopeepay', name: 'ShopeePay', icon: 'fa-shopping-bag', fee: 500, text: 'Otomatis 1 Detik' }
+                ]
+            },
+            {
+                category: 'Transfer Bank Virtual Account',
+                items: [
+                    { id: 'bca', name: 'Bank BCA', icon: 'fa-university', fee: 1000, text: 'Virtual Account BCA' },
+                    { id: 'mandiri', name: 'Bank Mandiri', icon: 'fa-university', fee: 1000, text: 'Virtual Account Mandiri' },
+                    { id: 'bri', name: 'Bank BRI', icon: 'fa-university', fee: 1000, text: 'Virtual Account BRI' }
+                ]
+            }
+        ];
+
+        let selectedProduct = null;
+        let selectedPayment = null;
+        let activeDiscount = 0;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderNominalCards('all');
+            renderPaymentOptions();
+            initLiveTxTable();
+            startLiveTxSimulation();
+
+            document.getElementById('userId').addEventListener('input', updateSummary);
+            document.getElementById('zoneId').addEventListener('input', updateSummary);
+        });
+
+        function renderNominalCards(filter) {
+            const grid = document.getElementById('nominalGrid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? nominalData 
+                : nominalData.filter(item => item.type === filter);
+
+            filtered.forEach(item => {
+                const isSelected = selectedProduct && selectedProduct.id === item.id;
+                const badgeHtml = item.badge 
+                    ? `<span class="absolute top-0 right-0 bg-gradient-to-l from-yellow-500 to-amber-600 text-slate-950 font-black text-[9px] px-2 py-0.5 rounded-bl-lg rounded-tr-lg shadow">${item.badge}</span>` 
+                    : '';
+
+                const card = document.createElement('div');
+                card.className = `relative glass-card p-3.5 rounded-xl border cursor-pointer transition-all duration-200 select-none ${isSelected ? 'border-yellow-400 bg-yellow-500/10 ring-2 ring-yellow-400/30 shadow-lg shadow-yellow-500/20' : 'border-slate-800 hover:border-slate-600 hover:bg-slate-800/50'}`;
+                card.onclick = () => selectProduct(item);
+
+                card.innerHTML = `
+                    ${badgeHtml}
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 rounded-md bg-yellow-500/20 text-yellow-300 flex items-center justify-center text-xs">💎</div>
+                        <span class="font-bold text-xs text-white leading-tight">${item.name}</span>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-xs font-black text-yellow-400">Rp ${item.price.toLocaleString('id-ID')}</p>
+                        <p class="text-[10px] text-gray-500 line-through">Rp ${item.originalPrice.toLocaleString('id-ID')}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterNominal(category) {
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('text-yellow-400', 'bg-slate-800');
+                btn.classList.add('text-gray-400');
+            });
+            event.target.classList.add('text-yellow-400', 'bg-slate-800');
+            event.target.classList.remove('text-gray-400');
+
+            renderNominalCards(category);
+        }
+
+        function selectProduct(item) {
+            selectedProduct = item;
+            const activeTab = document.querySelector('.cat-btn.text-yellow-400').innerText.toLowerCase();
+            renderNominalCards(activeTab.includes('semua') ? 'all' : (activeTab.includes('diamond') ? 'diamond' : 'membership'));
+            updateSummary();
+            showToast('Produk Dipilih', `${item.name} dipilih.`);
+        }
+
+        function renderPaymentOptions() {
+            const container = document.getElementById('paymentOptionsContainer');
+            container.innerHTML = '';
+
+            paymentMethodsData.forEach((cat) => {
+                const group = document.createElement('div');
+                group.className = 'glass-card rounded-xl border border-slate-800 overflow-hidden';
+
+                let itemsHtml = '';
+                cat.items.forEach(pay => {
+                    const isSelected = selectedPayment && selectedPayment.id === pay.id;
+                    itemsHtml += `
+                        <div onclick="selectPayment('${pay.id}', '${pay.name}', ${pay.fee})" class="flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all ${isSelected ? 'border-yellow-400 bg-yellow-500/10' : 'border-slate-800 hover:bg-slate-800/40'}">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center text-yellow-400 text-sm">
+                                    <i class="fas ${pay.icon}"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white">${pay.name}</h4>
+                                    <p class="text-[10px] text-gray-400">${pay.text}</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] text-yellow-300 font-semibold">+Rp ${pay.fee} Admin</span>
+                                <div class="w-4 h-4 rounded-full border border-slate-600 flex items-center justify-center ${isSelected ? 'border-yellow-400 bg-yellow-400' : ''} ml-auto mt-1">
+                                    ${isSelected ? '<i class="fas fa-check text-[9px] text-black font-bold"></i>' : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                group.innerHTML = `
+                    <div class="p-3 bg-slate-900 font-bold text-xs text-gray-300 border-b border-slate-800 flex justify-between items-center">
+                        <span><i class="fas fa-credit-card text-yellow-400 me-2"></i>${cat.category}</span>
+                        <span class="text-[10px] text-green-400">Otomatis</span>
+                    </div>
+                    <div class="p-2 space-y-2">
+                        ${itemsHtml}
+                    </div>
+                `;
+                container.appendChild(group);
+            });
+        }
+
+        function selectPayment(id, name, fee) {
+            selectedPayment = { id, name, fee };
+            renderPaymentOptions();
+            updateSummary();
+            showToast('Metode Pembayaran', `${name} dipilih.`);
+        }
+
+        function updateSummary() {
+            const userId = document.getElementById('userId').value.trim();
+            const zoneId = document.getElementById('zoneId').value.trim();
+
+            document.getElementById('summaryUserId').innerText = userId ? `${userId} ${zoneId ? '('+zoneId+')' : ''}` : 'Belum diisi';
+            document.getElementById('summaryProduct').innerText = selectedProduct ? selectedProduct.name : 'Belum dipilih';
+            document.getElementById('summaryPayment').innerText = selectedPayment ? selectedPayment.name : 'Belum dipilih';
+
+            const fee = selectedPayment ? selectedPayment.fee : 0;
+            const subtotal = selectedProduct ? selectedProduct.price : 0;
+            const total = Math.max(0, (subtotal + fee) - activeDiscount);
+
+            document.getElementById('summaryFee').innerText = `Rp ${fee.toLocaleString('id-ID')}`;
+            document.getElementById('summaryTotal').innerText = `Rp ${total.toLocaleString('id-ID')}`;
+        }
+
+        function applyVoucher() {
+            const code = document.getElementById('voucherCode').value.trim().toUpperCase();
+            const msg = document.getElementById('voucherMsg');
+
+            if (code === 'VALLZ') {
+                activeDiscount = 2000;
+                msg.className = "text-[10px] text-green-400 mt-1 block font-semibold";
+                msg.innerText = "✓ Kode VALLZ Berhasil! Potongan Rp 2.000";
+                showToast('Voucher Aktif', 'Potongan Rp 2.000 diterapkan.');
+            } else if (code === '') {
+                activeDiscount = 0;
+                msg.innerText = "";
+            } else {
+                activeDiscount = 0;
+                msg.className = "text-[10px] text-red-400 mt-1 block font-semibold";
+                msg.innerText = "✕ Kode voucher tidak valid.";
+            }
+            updateSummary();
+        }
+
+        // DIRECT CHECKOUT TO WHATSAPP 085215092503
+        function processOrder() {
+            const userId = document.getElementById('userId').value.trim();
+            const zoneId = document.getElementById('zoneId').value.trim();
+            const waNumber = document.getElementById('waNumber').value.trim();
+
+            if (!userId) {
+                showToast('Perhatian', 'Mohon isi Player ID Free Fire Anda!', 'warning');
+                document.getElementById('userId').focus();
+                return;
+            }
+            if (!selectedProduct) {
+                showToast('Perhatian', 'Silakan pilih Nominal Diamond terlebih dahulu!', 'warning');
+                return;
+            }
+            if (!selectedPayment) {
+                showToast('Perhatian', 'Silakan pilih Metode Pembayaran!', 'warning');
+                return;
+            }
+            if (!waNumber || waNumber.length < 9) {
+                showToast('Perhatian', 'Mohon masukkan nomor WhatsApp Anda yang aktif!', 'warning');
+                document.getElementById('waNumber').focus();
+                return;
+            }
+
+            const fee = selectedPayment.fee;
+            const subtotal = selectedProduct.price;
+            const total = Math.max(0, (subtotal + fee) - activeDiscount);
+
+            showToast('Menghubungkan', 'Mengarahkan ke WhatsApp Vallz Store...', 'success');
+
+            setTimeout(() => {
+                const text = encodeURIComponent(
+                    `Halo *Vallz Store*, saya ingin melakukan pemesanan top up Free Fire:\n\n` +
+                    `• *Player ID:* ${userId} ${zoneId ? '('+zoneId+')' : ''}\n` +
+                    `• *Item / Nominal:* ${selectedProduct.name}\n` +
+                    `• *Metode Pembayaran:* ${selectedPayment.name}\n` +
+                    `• *Total Pembayaran:* Rp ${total.toLocaleString('id-ID')}\n` +
+                    `• *No. WhatsApp Pembeli:* ${waNumber}\n\n` +
+                    `Mohon segera diproses, terima kasih!`
+                );
+                window.open(`https://wa.me/6285215092503?text=${text}`, '_blank');
+            }, 1000);
+        }
+
+        function initLiveTxTable() {
+            const tbody = document.getElementById('liveTxTable');
+            const mockUsers = ['8471****', '2940****', '1039****', '5829****', '9102****'];
+            const mockItems = ['7310 Diamond', '1440 Diamond', '720 Diamond', 'Membership Bulanan', '355 Diamond'];
+
+            tbody.innerHTML = '';
+            for (let i = 0; i < 5; i++) {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-800/40 transition-colors";
+                tr.innerHTML = `
+                    <td class="p-3 font-mono text-yellow-300">${mockUsers[i]}</td>
+                    <td class="p-3 font-bold">${mockItems[i]}</td>
+                    <td class="p-3"><span class="bg-green-500/10 text-green-400 border border-green-500/30 px-2 py-0.5 rounded text-[10px] font-bold">Sukses</span></td>
+                `;
+                tbody.appendChild(tr);
+            }
+        }
+
+        function startLiveTxSimulation() {
+            const users = ['1928****', '3849****', '7291****', '4810****', '6294****'];
+            const items = ['7310 Diamond FF', '1440 Diamond FF', '720 Diamond FF', 'Membership Bulanan'];
+
+            setInterval(() => {
+                const randomUser = users[Math.floor(Math.random() * users.length)];
+                const randomItem = items[Math.floor(Math.random() * items.length)];
+
+                document.getElementById('tx-user').innerText = randomUser;
+                document.getElementById('tx-item').innerText = randomItem;
+
+                const popup = document.getElementById('live-tx-popup');
+                popup.classList.remove('-translate-x-full');
+
+                setTimeout(() => {
+                    popup.classList.add('-translate-x-full');
+                }, 4000);
+            }, 12000);
+        }
+
+        function searchGame() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.getElementById('nominalGrid').children;
+
+            Array.from(cards).forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function showToast(title, msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-msg').innerText = msg;
+
+            toast.classList.remove('translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
+```
+eof
